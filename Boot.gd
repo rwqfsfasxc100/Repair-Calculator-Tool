@@ -21,9 +21,9 @@ var example_sys = {
 func _ready():
 	setupCFG()
 
-var dmg1 = 100
-var dmg2 = 100
-var dmg3 = 100
+var dmg1 = 0
+var dmg2 = 0
+var dmg3 = 0
 
 var fix = 1500
 var replace = 70000
@@ -53,9 +53,9 @@ var file = File.new()
 var cfg = ConfigFile.new()
 func setupCFG():
 	if not file.file_exists(cfgpath):
-		cfg.set_value("config","damage_1",100)
-		cfg.set_value("config","damage_2",100)
-		cfg.set_value("config","damage_3",100)
+		cfg.set_value("config","damage_1",0)
+		cfg.set_value("config","damage_2",0)
+		cfg.set_value("config","damage_3",0)
 		cfg.set_value("config","fix_price",1500)
 		cfg.set_value("config","buy_price",70000)
 		cfg.save(cfgpath)
