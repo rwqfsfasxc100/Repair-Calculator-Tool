@@ -178,8 +178,9 @@ const TRANSLATIONS = {
 		"TORCH":"Main Drives",
 		"RCS":"Reaction Control Systems",
 		"SEPARATOR_THOUSAND":",",
-		"YES":"Yes",
-		"NO":"No",
+		"YES":"[color=#00F000]Yes[/color]",
+		"NO":"[color=#F00000]No[/color]",
+		"OUTPUT_FORMATTING":"[b]Value before maintenance @ ~[color=#%s]%s[/color]%%: [color=#7f7fff]%s[/color] E$[/b]\n\n[b]Optimal repairs: %s | Replace after repairing %s times: %s[/b]\n\n[b]Value post maintenance to ~[color=#%s]%s[/color]%%: [color=#7f7fff]%s[/color] E$[/b]",
 		
 		"SYSTEM_REACTOR":"Nuclear Reactor",
 		"SYSTEM_AMD752S":"AMD-752S on-board computer",

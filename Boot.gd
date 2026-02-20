@@ -51,8 +51,8 @@ func _on_Calc_pressed():
 	var ret = Repairs.handle_operation(sys,fix,replace)
 	var postSys = Repairs.simulate_repair(sys,ret[0])
 	var postVal = Repairs.getSystemPrice(postSys)
-	var txt = "Value before maintenance @ ~%s%%: %s E$\n\nOptimal repairs: %s | Replace after repairing %s times: [%s]\n\nValue post maintenance to ~%s%%: %s E$" % [round(status),formatThousands(baseVal),ret[0],ret[0],TranslationServer.translate("YES" if ret[1] else "NO"),round(postSys.status),formatThousands(postVal)]
-	$Panel/Label.text = txt
+	var txt = TranslationServer.translate("OUTPUT_FORMATTING") % [colorForValue(status / 100),round(status),formatThousands(baseVal),ret[0],ret[0],TranslationServer.translate("YES" if ret[1] else "NO"),colorForValue(postSys.status / 100),round(postSys.status),formatThousands(postVal)]
+	$Panel/RichTextLabel.parse_bbcode(txt)
 
 var cfgpath = "user://config.ini"
 var file = File.new()
@@ -98,3 +98,8 @@ func formatThousands(nr):
 		return res
 	else:
 		return "-" + res
+
+func colorForValue(v):
+	var d = pow(clamp(v, 0, 1), 3)
+	var cv = (Color(0.1, 1.0, 0.1, 1) * d + Color(1.0, 0.1, 0.1, 1) * (1 - d))
+	return cv.to_html(false)
