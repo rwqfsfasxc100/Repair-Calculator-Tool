@@ -178,6 +178,8 @@ const TRANSLATIONS = {
 		"TORCH":"Main Drives",
 		"RCS":"Reaction Control Systems",
 		"SEPARATOR_THOUSAND":",",
+		"YES":"Yes",
+		"NO":"No",
 		
 		"SYSTEM_REACTOR":"Nuclear Reactor",
 		"SYSTEM_AMD752S":"AMD-752S on-board computer",

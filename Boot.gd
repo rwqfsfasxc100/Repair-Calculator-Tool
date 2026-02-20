@@ -38,17 +38,20 @@ func _on_Calc_pressed():
 	
 	saveCFG()
 	
+	Repairs.replace_price = replace
+	Repairs.fix_price = fix
+	
 	var sys = example_sys.duplicate(true)
 	sys.damage[0]["current"] = dmg1 #- 100
 	sys.damage[1]["current"] = dmg2 #- 100
 	sys.damage[2]["current"] = dmg3 #- 100
 	var status = Repairs.simulate_status(sys)
 	sys.status = status
-	var baseVal = Repairs.getSystemPrice(sys)
+	var baseVal = Repairs.getSystemPrice(Repairs.simulate_repair(sys,0))
 	var ret = Repairs.handle_operation(sys,fix,replace)
 	var postSys = Repairs.simulate_repair(sys,ret[0])
 	var postVal = Repairs.getSystemPrice(postSys)
-	var txt = "Value before maintenance @ %s%%: %s E$\n\nOptimal repairs: %s | Replace after repairing %s times: [%s]\n\nValue post maintenance to %s%%: %s E$" % [status,formatThousands(baseVal),ret[0],ret[0],str(ret[1]),postSys.status,formatThousands(postVal)]
+	var txt = "Value before maintenance @ ~%s%%: %s E$\n\nOptimal repairs: %s | Replace after repairing %s times: [%s]\n\nValue post maintenance to ~%s%%: %s E$" % [round(status),formatThousands(baseVal),ret[0],ret[0],TranslationServer.translate("YES" if ret[1] else "NO"),round(postSys.status),formatThousands(postVal)]
 	$Panel/Label.text = txt
 
 var cfgpath = "user://config.ini"

@@ -146,7 +146,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Panel"]
-margin_right = 350.0
+margin_right = 500.0
 margin_bottom = 118.0
 autowrap = true
 
