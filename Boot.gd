@@ -44,8 +44,11 @@ func _on_Calc_pressed():
 	sys.damage[2]["current"] = dmg3 #- 100
 	var status = Repairs.simulate_status(sys)
 	sys.status = status
+	var baseVal = Repairs.getSystemPrice(sys)
 	var ret = Repairs.handle_operation(sys,fix,replace)
-	var txt = "Optimal repairs: %s | Replace after repairing %s times: [%s]" % [ret[0],ret[0],str(ret[1])]
+	var postSys = Repairs.simulate_repair(sys,ret[0])
+	var postVal = Repairs.getSystemPrice(postSys)
+	var txt = "Value before maintenance @ %s%%: %s E$\n\nOptimal repairs: %s | Replace after repairing %s times: [%s]\n\nValue post maintenance to %s%%: %s E$" % [status,formatThousands(baseVal),ret[0],ret[0],str(ret[1]),postSys.status,formatThousands(postVal)]
 	$Panel/Label.text = txt
 
 var cfgpath = "user://config.ini"
@@ -77,3 +80,18 @@ func saveCFG():
 	cfg.set_value("config","buy_price",replace)
 	cfg.save(cfgpath)
 	cfg.clear()
+
+func formatThousands(nr):
+	var separator = TranslationServer.translate("SEPARATOR_THOUSAND")
+	var string = "%d" % abs(nr)
+	var mod = string.length() % 3
+	var res = ""
+	for i in range(0, string.length()):
+		if i != 0 and i % 3 == mod:
+			res += separator
+		res += string[i]
+		
+	if nr >= 0:
+		return res
+	else:
+		return "-" + res

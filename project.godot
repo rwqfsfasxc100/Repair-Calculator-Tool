@@ -23,7 +23,7 @@ Repairs="*res://repairs.gd"
 
 [display]
 
-window/size/width=350
+window/size/width=500
 window/size/height=300
 window/size/resizable=false
 
