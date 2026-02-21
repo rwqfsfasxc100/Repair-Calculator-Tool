@@ -180,7 +180,7 @@ const TRANSLATIONS = {
 		"SEPARATOR_THOUSAND":",",
 		"YES":"[color=#00F000]Yes[/color]",
 		"NO":"[color=#F00000]No[/color]",
-		"OUTPUT_FORMATTING":"[b]Estimated value before maintenance @ ~[color=#%s]%s[/color]%%: [color=#7f7fff]%s[/color] E$[/b]\n\n[b]Optimal repairs: %s | Replace after repairing %s times: %s[/b]\n\n[b]Estimated value post maintenance to ~[color=#%s]%s[/color]%%: [color=#7f7fff]%s[/color] E$[/b]",
+		"OUTPUT_FORMATTING":"[b]Est. value before maintenance @ ~[color=#%s]%s[/color]%%: [color=#7f7fff]%s[/color] E$[/b]\n\n[b]Optimal repairs: %s | Replace after repairing %s times: %s[/b]\n\n[b]Est. value post maintenance to ~[color=#%s]%s[/color]%%: [color=#7f7fff]%s[/color] E$[/b]",
 		
 		"SYSTEM_REACTOR":"Nuclear Reactor",
 		"SYSTEM_AMD752S":"AMD-752S on-board computer",
